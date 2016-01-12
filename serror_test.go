@@ -1,15 +1,23 @@
 package serror
 
 import (
-	"errors"
 	"fmt"
 	"testing"
 )
 
-func TestNewString(t *testing.T) {
-	fmt.Println(NewString("foo"))
+func TestSimpleError(t *testing.T) {
+	fmt.Println(Errorf("simple error"))
 }
 
-func TestNewError(t *testing.T) {
-	fmt.Println(NewError(errors.New("bar")))
+func TestFormatError(t *testing.T) {
+	fmt.Println(Errorf("format %s", "error"))
+}
+
+func returnAnError() error {
+	err := Errorf("return an error")
+	return err
+}
+
+func TestConcatSmartError(t *testing.T) {
+	fmt.Println(Errorf("Concat smarterror: %v", returnAnError()))
 }

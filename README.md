@@ -14,30 +14,25 @@ package main
 
 import (
 	"fmt"
-	"errors"
 
 	"github.com/QuentinPerez/serror"
 )
 
 func main() {
-	fmt.Println(serror.NewString("foo"))
-	fmt.Println(serror.NewError(errors.New("bar")))
+	fmt.Println(serror.Errorf("Smart Error"))
 }
+
 ```
 > Output
 ```console
-main.go, line 11: main()
-	➜ foo
-main.go, line 12: main()
-	➜ bar
+main.go:10 main() Smart Error
 ```
 
 ## Changelog
 
 ### master (unreleased)
 
-* Add `NewString`
-* Add `NewError`
+* Add `Errorf`
 
 ## Development
 
